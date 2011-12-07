@@ -14,7 +14,9 @@
         "dhcp_enabled": true,
         "allow_same_net_traffic": false,
         "num_networks": 1,
-        "network_size": 256
+        "network_size": 256,        
+        "quantum_enabled": true,
+        "quantum_plugin": "openvswitch"
       },
       "rabbit": {
         "password": "secure_password",

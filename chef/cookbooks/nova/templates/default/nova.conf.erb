@@ -40,6 +40,15 @@
 --network_size=<%= node[:nova][:network][:network_size] %>
 --num_networks=<%= node[:nova][:network][:num_networks] %>
 
+<% if node[:nova][:network][:quantum_enabled] -%>
+--network_manager=nova.network.quantum.manager.QuantumManager
+<% if node[:nova][:network][:quantum_plugin] == "openvswitch" -%>
+--libvirt_vif_type=ethernet
+--libvirt_vif_driver=nova.virt.libvirt.vif.LibvirtOpenVswitchDriver
+--linuxnet_interface_driver=nova.network.linux_net.LinuxOVSInterfaceDriver
+--quantum-use-dhcp
+<% end -%>
+<% else -%>
 <% if node[:nova][:network][:dhcp_enabled] -%>
 <% if node[:nova][:network][:tenant_vlans] -%>
 # DHCP Vlan Mode
@@ -61,6 +70,7 @@
 --flat_network_bridge=<%= node[:nova][:network][:flat_network_bridge] %>
 --flat_network_dns=<%= @dns_server_public_ip %>
 --flat_injected=True
+<% end -%>
 <% end -%>
 
 # GLANCE

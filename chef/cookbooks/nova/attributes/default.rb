@@ -70,3 +70,6 @@ default[:nova][:network][:flat_network_dhcp_start] = "10.0.0.2"
 default[:nova][:network][:vlan_interface] = "eth1"
 default[:nova][:network][:vlan_start] = 100
 
+# Quantum network parameters
+default[:nova][:network][:quantum_enabled] = true
+default[:nova][:network][:quantum_plugin] = "openvswitch" 

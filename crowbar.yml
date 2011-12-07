@@ -25,6 +25,7 @@ barclamp:
     - glance
     - keystone
     - nova_dashboard
+    - quantum    
   member:
     - openstack 
 
@@ -88,4 +89,7 @@ debs:
     - python-keystone
     - nova-ajax-console-proxy
     - mysql-client
+    - openvswitch-switch
+    - openvswitch-datapath-dkms
+    - linux-headers-2.6.35-22-generic
 
