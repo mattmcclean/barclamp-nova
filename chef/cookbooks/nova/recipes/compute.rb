@@ -23,8 +23,8 @@ include_recipe "nova::config"
 package "mysql-client"
 
 # check if Quantum enabled and OpenVswitch plugin enabled
-if node[:nova][:network][:quantum_enabled] and node[:nova][:network][:quantum_plugin] == "openvswitch"
-  include_recipe "nova::quantum"  
+if (node[:nova][:network][:quantum_enabled] && node[:nova][:network][:quantum_plugin] == "openvswitch")
+  include_recipe "quantum::ovs_nova"  
 end
 
 nova_package("compute")

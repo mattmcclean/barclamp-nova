@@ -87,8 +87,5 @@ debs:
     - openstackx
     - python-keystone
     - nova-ajax-console-proxy
-    - mysql-client
-    - openvswitch-switch
-    - openvswitch-datapath-dkms
-    - linux-headers-2.6.35-22-generic
+
 
